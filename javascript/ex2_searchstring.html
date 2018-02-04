@@ -1,0 +1,69 @@
+<!--
+	author: Visaitas Somrith 58160148 
+	Date: 4/4/2018
+-->
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+	function toSearch(){
+			var count = 0;
+			//TextInput
+			var text = document.getElementById("inputtext").value;
+			//ToSearch
+			var searchs = document.getElementById("search").value;
+			//Check Case
+			var check = document.getElementsByName("case");
+			//Check Case Y/N
+			for (var i = 0; i < check.length; i++) {
+				if(check[i].checked){
+					check = check[i].value;
+					//console.log(check);
+				}
+			}
+			//split text to array
+			var ary = text.split(" ");
+			//console.log(ary);
+			//Count
+			for(var i=0;i<ary.length;i++){
+				if (check == "no") {
+					ary[i]=ary[i].toUpperCase();
+					searchs=searchs.toUpperCase()
+					if(ary[i].search(searchs) > -1){
+						count++;
+					}
+				}else{
+					if (ary[i].search(searchs) > -1) {
+					count++;
+					}
+				}
+				
+			}
+			console.log(ary);
+			document.getElementById("count").innerHTML = count;
+			//document.getElementById("result").innerHTML = "Hello World!";
+	}
+</script>
+
+	<center>
+		<h1>Ex2 - Search String Non Sensitive Case</h1>
+		<hr>
+		<p>Text Input: 
+		<textarea id="inputtext"></textarea>
+		</p>
+		<p>Sensitive Case : 
+	        <input type="radio" name="case" value="yes" >Yes
+	        <input type="radio" name="case" value="no">No
+	    </p>
+	    <p>Search :
+	    	<input type="text" name="search" id="search">
+	    </p>
+	    <button onclick="toSearch()">search</button>
+        <p> Result for Search : <p> <b id="count"></b>
+	</center>
+</body>
+</html>
+
+
+Test Test Test test test Test Test
+
